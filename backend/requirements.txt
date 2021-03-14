@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+
+
+
+
+#seedir to print tree structure of folders
+seedir
