@@ -2,6 +2,8 @@ fastapi
 uvicorn
 
 
+#for template
+jinja2
 
 
 #seedir to print tree structure of folders
