@@ -6,5 +6,9 @@ uvicorn
 jinja2
 
 
+#for static files
+aiofiles
+
+
 #seedir to print tree structure of folders
 seedir
