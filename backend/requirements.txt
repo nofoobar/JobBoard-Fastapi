@@ -14,5 +14,8 @@ psycopg2
 #for loading environment variables
 python-dotenv
 
+#for email validation
+pydantic[email]
+
 #seedir to print tree structure of folders
 seedir
