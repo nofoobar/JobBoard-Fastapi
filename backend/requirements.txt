@@ -1,14 +1,18 @@
 fastapi
 uvicorn
 
-
 #for template
 jinja2
-
 
 #for static files
 aiofiles
 
+#for database
+sqlalchemy
+psycopg2
+
+#for loading environment variables
+python-dotenv
 
 #seedir to print tree structure of folders
 seedir
