@@ -17,5 +17,8 @@ python-dotenv
 #for email validation
 pydantic[email]
 
+#hashing
+passlib[bcrypt]
+
 #seedir to print tree structure of folders
 seedir
