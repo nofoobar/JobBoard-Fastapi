@@ -11,4 +11,4 @@ class User(Base):
     hashed_password = Column(String,nullable=False)
     is_active = Column(Boolean(),default=True)
     is_superuser = Column(Boolean(),default=False)
-    jobs = relationship("Jobs",back_populates="job_poster")
+    jobs = relationship("Job",back_populates="owner")
