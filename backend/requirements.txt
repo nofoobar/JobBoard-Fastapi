@@ -20,5 +20,10 @@ pydantic[email]
 #hashing
 passlib[bcrypt]
 
+
+#for testing
+pytest
+requests
+
 #seedir to print tree structure of folders
 seedir
