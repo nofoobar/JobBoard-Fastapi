@@ -31,5 +31,8 @@ python-jose
 #for  cleaning up codebase on each commit
 pre-commit
 
+#for accessing form data
+python-multipart
+
 #seedir to print tree structure of folders
 seedir
