@@ -11,6 +11,7 @@ class Settings:
     PROJECT_NAME: str = "Job Board"
     PROJECT_VERSION: str = "1.0.0"
 
+    USE_SQLITE_DB:str = os.getenv("USE_SQLITE_DB")
     POSTGRES_USER: str = os.getenv("POSTGRES_USER")
     POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD")
     POSTGRES_SERVER: str = os.getenv("POSTGRES_SERVER", "localhost")
