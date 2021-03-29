@@ -7,6 +7,24 @@
 
 {% block content %}
   <div class="container">
-    <h1 class="display-4">Find Jobs...</h1>
+  <div class="row">
+    <div class="col">
+      <h1 class="display-5">Find Jobs..</h1>
+    </div>
   </div>
+  <div class="row">
+      {% for job in jobs %}
+        <div class="col-lg-4 col-md-3 col-sm-10 mr-auto">
+          {% with obj=job %}
+      		{% include "components/cards.html" %}
+    	  {% endwith %}
+
+          {% if loop.index %3 %}
+            </div>
+          {% else %}
+            </div></div><br><div class="row">
+          {% endif %}
+      {% endfor %}
+  </div>
+</div>
 {% endblock %}
