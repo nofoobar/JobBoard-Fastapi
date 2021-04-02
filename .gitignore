@@ -3,3 +3,4 @@ __pycache__
 env
 test_db.db
 print_tree.py
+sql_app.db
