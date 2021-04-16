@@ -34,5 +34,11 @@ pre-commit
 #for accessing form data
 python-multipart
 
+#Databases gives asyncio support for a range of databases.
+databases
+databases[sqlite]
+asyncpg
+aiosqlite
+
 #seedir to print tree structure of folders
 seedir

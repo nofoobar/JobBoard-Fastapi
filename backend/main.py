@@ -2,6 +2,7 @@ from apis.base import api_router
 from core.config import settings
 from db.base import Base
 from db.session import engine
+from db.utils import check_db_connected
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 
@@ -27,3 +28,8 @@ def start_application():
 
 
 app = start_application()
+
+
+@app.on_event("startup")
+async def app_startup():
+    await check_db_connected()
