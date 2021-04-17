@@ -11,12 +11,11 @@ from db.session import get_db
 from fastapi import APIRouter
 from fastapi import Depends
 from fastapi import HTTPException
-from fastapi import status, Request
+from fastapi import status
 from fastapi.templating import Jinja2Templates
 from schemas.jobs import JobCreate
 from schemas.jobs import ShowJob
 from sqlalchemy.orm import Session
-
 
 
 router = APIRouter()
@@ -81,12 +80,4 @@ def delete_job(
         return {"msg": "Successfully deleted."}
     raise HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED, detail="You are not permitted!!!!"
-    )
-
-
-@router.get("/detail/{id}")
-def job_detail(id:int,request: Request,db:Session = Depends(get_db)):
-    job = retreive_job(id=id, db=db)
-    return templates.TemplateResponse(
-        "jobs/detail.html", {"request": request,"job":job}
     )
