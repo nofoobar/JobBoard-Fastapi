@@ -37,8 +37,9 @@ Features:
  - 🚧 Load Testing using Locust
  - 🚧 Fully Asyc
  - 🚧 Migration by alembic
+ - 🚧 Caching
  - 🚧 Dockerization
  - 🚧 Creating a frontend using Vue/React
- - 🚧 CI and CD
  - 🚧 Getting ready for Production e.g. load balancing,NGINX,HTTPS 
  - 🚧 Deployment
+ - 🚧 CI and CD
