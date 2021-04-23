@@ -7,8 +7,8 @@ from fastapi import responses
 from fastapi import status
 from fastapi.templating import Jinja2Templates
 from schemas.users import UserCreate
-from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
+from sqlalchemy.orm import Session
 from webapps.users.forms import UserCreateForm
 
 
@@ -32,8 +32,9 @@ async def register(request: Request, db: Session = Depends(get_db)):
         try:
             user = create_new_user(user=user, db=db)
             return responses.RedirectResponse(
-                "/", status_code=status.HTTP_302_FOUND
+                "/?msg=Successfully-Registered", status_code=status.HTTP_302_FOUND
             )  # default is post request, to use get request added status code 302
         except IntegrityError:
-            return {"msg":"Duplicate username or email"}
+            form.__dict__.get("errors").append("Duplicate username or email")
+            return templates.TemplateResponse("users/register.html", form.__dict__)
     return templates.TemplateResponse("users/register.html", form.__dict__)

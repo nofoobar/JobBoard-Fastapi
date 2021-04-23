@@ -6,6 +6,9 @@
 {% endblock %}
 
 {% block content %}
+  {% with msg=msg %}
+    {% include "components/alerts.html" %}
+  {% endwith %}
   <div class="container">
   <div class="row">
     <div class="col">
@@ -17,7 +20,7 @@
         <div class="col-lg-4 col-md-3 col-sm-10 mr-auto">
           {% with obj=job %}
       		{% include "components/cards.html" %}
-    	  {% endwith %}
+    	    {% endwith %}
 
           {% if loop.index %3 %}
             </div>
