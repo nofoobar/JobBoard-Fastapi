@@ -34,6 +34,7 @@ Features:
  - ✔️ Unit Testing (What makes an app stable)
  - ✔️ Authentication login/create user/get token
  - ✔️ Authorization/Permissions 
+ - ✔️ Webapp (Monolithic)
  - 🚧 Load Testing using Locust
  - 🚧 Fully Asyc
  - 🚧 Migration by alembic
