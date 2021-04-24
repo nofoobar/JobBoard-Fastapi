@@ -1,0 +1,43 @@
+{% extends "shared/base.html" %}
+
+
+{% block title %}
+  <title>Create a Job Post</title>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="text-danger font-weight-bold">
+        {% for error in errors %}
+          <li>{{error}}</li>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="row my-5">
+      <h3 class="text-center display-4">Create a Job Post</h3>
+      <form method="POST">
+        <div class="mb-3">
+          <input type="text" required class="form-control" name="title" value="{{title}}" placeholder="Job Title here">
+        </div>
+        <div class="mb-3">
+          <input type="text" required placeholder="Company Name e.g. Doogle" name="company" value="{{company}}" class="form-control">
+        </div>
+        <div class="mb-3">
+          <input type="text" required placeholder="Job post URL e.g. https://www.python.org/jobs/5309/" name="company_url" value="{{company_url}}" class="form-control">
+        </div>
+        <div class="mb-3">
+          <input type="text" required placeholder="Job location" name="location" value="{{location}}" class="form-control">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+          <textarea class="form-control" required name="description" id="exampleFormControlTextarea1" rows="3">{{description}}</textarea>
+          <div id="help" class="form-text">Please provide complete Job description,requirements,perks and benefits.</div>
+
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+  {% endblock %}
