@@ -1,0 +1,57 @@
+{% extends "shared/base.html" %}
+
+
+{% block title %}
+  <title>Delete Jobs</title>
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="display-5 text-center text-danger mb-3">Delete Jobs</h1>
+    </div>
+    <div id="result" class="text-danger text-bold lead"></div>
+  </div>
+
+  <div class="row">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Sr. No.</th>
+            <th scope="col">Title</th>
+            <th scope="col">Company</th>
+            <th scope="col">Company URL</th>
+            <th scope="col">Location</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for job in jobs %}
+            <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{job.title}}</td>
+                <td>{{job.company}}</td>
+                <td>{{job.company_url}}</td>
+                <td>{{job.location}}</td>
+                <td><button class="btn btn-danger btn-sm" onclick="delete_job({{job.id}})">Delete</button></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+<script type="text/javascript">
+    function delete_job(id){
+        fetch('/jobs/delete/'+id,{
+            method:'DELETE',})
+        .then(response => response.json())
+        .then(document.getElementById('result').innerHTML = "Refreshing...")
+        .then(data => document.getElementById('result').innerHTML = data.detail);
+    }
+</script>
+{% endblock %}
