@@ -1,8 +1,11 @@
+from typing import Optional
+
 from apis.version1.route_login import get_current_user_from_token
 from db.models.users import User
 from db.repository.jobs import create_new_job
 from db.repository.jobs import list_jobs
 from db.repository.jobs import retreive_job
+from db.repository.jobs import search_job
 from db.session import get_db
 from fastapi import APIRouter
 from fastapi import Depends
@@ -71,4 +74,14 @@ def show_jobs_to_delete(request: Request, db: Session = Depends(get_db)):
     jobs = list_jobs(db=db)
     return templates.TemplateResponse(
         "jobs/show_jobs_to_delete.html", {"request": request, "jobs": jobs}
+    )
+
+
+@router.get("/search/")
+def search(
+    request: Request, db: Session = Depends(get_db), query: Optional[str] = None
+):
+    jobs = search_job(query, db=db)
+    return templates.TemplateResponse(
+        "general_pages/homepage.html", {"request": request, "jobs": jobs}
     )
