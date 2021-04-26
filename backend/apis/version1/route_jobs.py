@@ -1,4 +1,5 @@
 from typing import List
+from typing import Optional
 
 from apis.version1.route_login import get_current_user_from_token
 from db.models.users import User
@@ -6,6 +7,7 @@ from db.repository.jobs import create_new_job
 from db.repository.jobs import delete_job_by_id
 from db.repository.jobs import list_jobs
 from db.repository.jobs import retreive_job
+from db.repository.jobs import search_job
 from db.repository.jobs import update_job_by_id
 from db.session import get_db
 from fastapi import APIRouter
@@ -81,3 +83,12 @@ def delete_job(
     raise HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED, detail="You are not permitted!!!!"
     )
+
+
+@router.get("/autocomplete")
+def autocomplete(term: Optional[str] = None, db: Session = Depends(get_db)):
+    jobs = search_job(term, db=db)
+    job_titles = []
+    for job in jobs:
+        job_titles.append(job.title)
+    return job_titles
